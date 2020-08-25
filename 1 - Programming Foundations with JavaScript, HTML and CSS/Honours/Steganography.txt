@@ -1,0 +1,61 @@
+// write your code here
+var start = new SimpleImage("usain.jpg");
+var hide = new SimpleImage("skyline.jpg");
+
+function clearbits(pixVal) {
+    var x = Math.floor(pixVal/16) * 16;
+    return x;
+}
+
+function chop2hide(image) {
+    for(var pix of image.values()) {
+        pix.setRed(clearbits(pix.getRed()));
+        pix.setGreen(clearbits(pix.getGreen()));
+        pix.setBlue(clearbits(pix.getBlue()));
+    }
+    return image;
+}
+
+function shift(image) {
+    for(var pix of image.values()) {
+        pix.setRed(pix.getRed()/16);
+        pix.setGreen(pix.getGreen()/16);
+        pix.setBlue(pix.getBlue()/16);
+    }
+    return image;
+}
+
+function shift(image) {
+    for(var pix of image.values()) {
+        pix.setRed(pix.getRed()/16);
+        pix.setGreen(pix.getGreen()/16);
+        pix.setBlue(pix.getBlue()/16);
+    }
+    return image;
+}
+
+function combine(start, hide) {
+    var image = new SimpleImage(start.getWidth(), start.getHeight())
+    
+    for(var pix of image.values()) {
+        var x = pix.getX();
+        var y = pix.getY();
+        
+        var showPix = start.getPixel(x, y);
+        var hidePix = hide.getPixel(x, y);
+        
+        pix.setRed(showPix.getRed() + hidePix.getRed());
+        pix.setGreen(showPix.getGreen() + hidePix.getGreen());
+        pix.setBlue(showPix.getBlue() + hidePix.getBlue());
+    }
+    return image;
+}
+
+start = chop2hide(start);
+print(start);
+
+hide = shift(hide);
+print(hide);
+
+var stego = combine(start,hide);
+print(stego);

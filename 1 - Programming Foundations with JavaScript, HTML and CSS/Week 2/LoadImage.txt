@@ -1,0 +1,56 @@
+// write your code here
+var x = 3;
+var y = 4;
+var z = x + 2 * y;
+
+print(x);
+print(y);
+print(z);
+
+var x = 3;
+var y = 2;
+y = x;
+print(x);
+print(y);
+
+var img = new SimpleImage("chapel.png");
+print(img);
+print(img.getWidth());
+print(img.getHeight());
+print(img.getPixel(0,5));
+print(img.getRed(0,5));
+print(img.getGreen(0,5));
+print(img.getBlue(0,5));
+
+function square(x){
+    var ans = x * x;
+    return ans;
+}
+
+var y = square(4);
+print(y)
+
+function cube(x){
+    var ans = x * x * x;
+    return ans;
+}
+print(cube(4))
+
+function addNumbers(x, y, z){
+    var ans = x + y + z;
+    return ans;
+}
+print(addNumbers(1,2,5));
+
+function addStrings(x, y){
+    var ans = x + y;
+    return ans;
+}
+print(addStrings("Dinushi ", "Jayasekara"));
+
+function imgHW(x){
+    var img = new SimpleImage(x);
+    print(img.getWidth());
+    print(img.getHeight());
+}
+imgHW("dinos.png");

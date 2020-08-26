@@ -1,0 +1,40 @@
+// write your code here
+
+var img = new SimpleImage("hilton.jpg");
+var width = img.getWidth();
+print(img);
+
+for(var pixel of img.values()){
+    if(pixel.getX() < (1/3 * width)){  
+        pixel.setRed(255);
+    } else if((pixel.getX() > (1/3 * width)) && (pixel.getX() < (2/3 * width))){  
+        pixel.setGreen(255);
+    } else if(pixel.getX() > (2/3 * width)){
+        pixel.setBlue(255);
+    }
+}
+print(img);
+
+function swapRedGreen(imgName){
+    var img = new SimpleImage(imgName);
+    print(img);
+    for(var pixel of img.values()){
+        pixel.setRed(pixel.getGreen());
+        pixel.setGreen(pixel.getRed());
+    }
+    print(img);
+}
+swapRedGreen("smallhands.png");
+
+var img = new SimpleImage("duke_blue_devil.png");
+var width = img.getWidth();
+print(img);
+
+for(var pixel of img.values()){
+    if(!((pixel.getBlue() == 255) && (pixel.getRed() == 255) && (pixel.getGreen() == 255))){  
+        pixel.setRed(255);
+        pixel.setGreen(255);
+        pixel.setBlue(0);
+    }
+}
+print(img);
